@@ -1,8 +1,8 @@
 # Job Portal API
 
-REST API para uma plataforma de vagas de emprego, com perfis de employer, job seeker e admin, desenvolvida com Spring Boot e Spring Security.
+REST API for a job portal platform, with employer, job seeker and admin roles, built with Spring Boot and Spring Security.
 
-Projeto de estudo do curso Master Spring 7, Spring Boot 4, REST, JPA, Security (EazyBytes).
+Study project for the course Master Spring 7, Spring Boot 4, REST, JPA, Security (EazyBytes).
 
 ## Stack
 - Java
@@ -11,7 +11,7 @@ Projeto de estudo do curso Master Spring 7, Spring Boot 4, REST, JPA, Security (
 - Spring Data JPA
 - Maven
 
-## Como rodar
+## How to run
 
 ```bash
 ./mvnw spring-boot:run
