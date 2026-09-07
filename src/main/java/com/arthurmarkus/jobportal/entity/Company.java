@@ -1,0 +1,61 @@
+package com.arthurmarkus.jobportal.entity;
+
+import jakarta.persistence.*;
+
+import java.math.BigDecimal;
+import java.time.Instant;
+
+@Entity
+@Table(name = "COMPANIES")
+public class Company {
+
+    // if your java field and the column name are the same
+    // no need to mention name parameter
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "ID", nullable = false)
+    private Long id;
+
+    @Column(name = "NAME", nullable = false, unique = true)
+    private String name;
+
+    @Column(name = "LOGO", length = 500)
+    private String logo;
+
+    @Column(name = "INDUSTRY", nullable = false, length = 100)
+    private String industry;
+
+    @Column(name = "SIZE", nullable = false, length = 100)
+    private String size;
+
+    @Column(name = "RATING", nullable = false, precision = 3, scale = 2)
+    private BigDecimal rating;
+
+    @Column(name = "LOCATIONS", length = 1000)
+    private String locations;
+
+    @Column(name = "FOUNDED", nullable = false)
+    private Integer founded;
+
+    @Lob
+    @Column(name = "DESCRIPTION")
+    private String description;
+
+    @Column(name = "EMPLOYEES")
+    private Integer employees;
+
+    @Column(name = "WEBSITE")
+    private String website;
+
+    @Column(name = "CREATED_AT", nullable = false)
+    private Instant createdAt;
+
+    @Column(name = "CREATED_BY", nullable = false, length = 20)
+    private String createdBy;
+
+    @Column(name = "UPDATED_AT")
+    private Instant updatedAt;
+
+    @Column(name = "UPDATED_BY", length = 20)
+    private String updatedBy;
+}
