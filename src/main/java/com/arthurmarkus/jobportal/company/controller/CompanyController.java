@@ -1,5 +1,6 @@
 package com.arthurmarkus.jobportal.company.controller;
 
+import com.arthurmarkus.jobportal.dto.CompanyDTO;
 import com.arthurmarkus.jobportal.entity.Company;
 import com.arthurmarkus.jobportal.service.ICompanyService;
 import lombok.RequiredArgsConstructor;
@@ -19,8 +20,8 @@ public class CompanyController {
     private final ICompanyService companyService;
 
     @GetMapping(version = "1.0")
-    public ResponseEntity<List<Company>> getAllCompanies(){
-        List<Company> companyList = companyService.getAllCompanies();
+    public ResponseEntity<List<CompanyDTO>> getAllCompanies(){
+        List<CompanyDTO> companyList = companyService.getAllCompanies();
         return ResponseEntity.ok().body(companyList);
     }
 }
