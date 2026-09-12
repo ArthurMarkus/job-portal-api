@@ -1,7 +1,6 @@
-package com.arthurmarkus.jobportal.service;
+package com.arthurmarkus.jobportal.company.service;
 
 import com.arthurmarkus.jobportal.dto.CompanyDTO;
-import com.arthurmarkus.jobportal.entity.Company;
 
 import java.util.List;
 

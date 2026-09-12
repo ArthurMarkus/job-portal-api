@@ -1,10 +1,8 @@
 package com.arthurmarkus.jobportal.company.controller;
 
 import com.arthurmarkus.jobportal.dto.CompanyDTO;
-import com.arthurmarkus.jobportal.entity.Company;
-import com.arthurmarkus.jobportal.service.ICompanyService;
+import com.arthurmarkus.jobportal.company.service.ICompanyService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
