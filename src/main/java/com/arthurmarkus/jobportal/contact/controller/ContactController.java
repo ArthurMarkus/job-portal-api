@@ -2,6 +2,7 @@ package com.arthurmarkus.jobportal.contact.controller;
 
 import com.arthurmarkus.jobportal.contact.service.IContactService;
 import com.arthurmarkus.jobportal.dto.ContactRequestDTO;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class ContactController {
     private final IContactService contactService;
 
     @PostMapping(version = "1.0")
-    public ResponseEntity<String> saveContactMsg(@RequestBody ContactRequestDTO contactRequestDTO){
+    public ResponseEntity<String> saveContactMsg(@RequestBody @Valid ContactRequestDTO contactRequestDTO){
         boolean isSaved = contactService.saveContact(contactRequestDTO);
 
         if (isSaved){
