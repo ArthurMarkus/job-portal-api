@@ -10,7 +10,7 @@ import java.time.Instant;
 @Entity
 @Table(name = "COMPANIES")
 @Getter @Setter
-public class Company {
+public class Company extends BaseEntity {
 
     // if your java field and the column name are the same
     // no need to mention name parameter
@@ -48,16 +48,4 @@ public class Company {
 
     @Column(name = "WEBSITE")
     private String website;
-
-    @Column(name = "CREATED_AT", nullable = false)
-    private Instant createdAt;
-
-    @Column(name = "CREATED_BY", nullable = false, length = 20)
-    private String createdBy;
-
-    @Column(name = "UPDATED_AT")
-    private Instant updatedAt;
-
-    @Column(name = "UPDATED_BY", length = 20)
-    private String updatedBy;
 }
