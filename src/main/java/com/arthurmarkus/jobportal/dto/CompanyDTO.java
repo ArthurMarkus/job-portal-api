@@ -2,8 +2,9 @@ package com.arthurmarkus.jobportal.dto;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.List;
 
 public record CompanyDTO(Long id, String name, String logo, String industry, String size,
                          BigDecimal rating, String locations, Integer founded, String description,
-                         Integer employees, String website, Instant createdAt) {
+                         Integer employees, String website, Instant createdAt, List<JobDTO> jobs) {
 }

@@ -79,15 +79,12 @@ public class Job extends BaseEntity {
     private String salaryPeriod;
 
     @NotNull
-    @Lob
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Lob
     @Column(name = "requirements")
     private String requirements;
 
-    @Lob
     @Column(name = "benefits")
     private String benefits;
 
