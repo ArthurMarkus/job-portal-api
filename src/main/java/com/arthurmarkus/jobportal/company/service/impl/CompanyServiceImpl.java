@@ -24,10 +24,12 @@ public class CompanyServiceImpl implements ICompanyService {
     }
 
     private CompanyDTO transformCompanyToDTO(Company company){
-        List<JobDTO> jobDTOS = company.getJobs().stream().map(this::transformJobToDTO).toList();
+
+        List<JobDTO> jobDTOs = company.getJobs().stream().map(this::transformJobToDTO).toList();
+
         return new CompanyDTO(company.getId(), company.getName(), company.getLogo(), company.getIndustry(),
                 company.getSize(), company.getRating(), company.getLocations(), company.getFounded(),
-                company.getDescription(), company.getEmployees(), company.getWebsite(), company.getCreatedAt(), jobDTOS);
+                company.getDescription(), company.getEmployees(), company.getWebsite(), company.getCreatedAt(), jobDTOs);
     }
 
     private JobDTO transformJobToDTO(Job job){

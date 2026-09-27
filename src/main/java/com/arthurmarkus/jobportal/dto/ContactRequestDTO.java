@@ -26,7 +26,7 @@ public record ContactRequestDTO(
 
         @NotBlank(message = "UserType cannot be empty")
         @Pattern(regexp = "Job Seeker|Employer|Other", message = "UserType must be one of: Job Seeker, Employer, Other")
-        String userType)
+        String userType
 
-        implements Serializable {
+        ) implements Serializable {
 }

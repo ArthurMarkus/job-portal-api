@@ -33,7 +33,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, String>> handleExceptio(MethodArgumentNotValidException e){
+    public ResponseEntity<Map<String, String>> handleException(MethodArgumentNotValidException e){
         Map<String, String> errors = new HashMap<>();
         List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
         fieldErrors.forEach(error -> errors.put(error.getField(), error.getDefaultMessage()));
@@ -53,5 +53,13 @@ public class GlobalExceptionHandler {
             errors.put(paramName, combinedMessage);
         });
         return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<ErrorResponseDTO> handleNullException(Exception exception, WebRequest webRequest) {
+        ErrorResponseDTO errorResponseDto = new ErrorResponseDTO(
+                webRequest.getDescription(false), HttpStatus.INTERNAL_SERVER_ERROR,
+                "A NullPointerException occurred due to : "+exception.getMessage(), LocalDateTime.now());
+        return new ResponseEntity<>(errorResponseDto, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
