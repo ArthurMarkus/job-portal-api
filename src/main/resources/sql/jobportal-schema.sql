@@ -63,3 +63,30 @@ CREATE TABLE IF NOT EXISTS jobs (
     FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE
 );
 CREATE INDEX IF NOT EXISTS idx_jobs_company_id ON jobs(company_id);
+
+-- Create roles table
+CREATE TABLE IF NOT EXISTS roles (
+    id         BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name       VARCHAR(50) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    created_by VARCHAR(20) NOT NULL,
+    updated_at TIMESTAMP DEFAULT NULL,
+    updated_by VARCHAR(20) DEFAULT NULL
+    );
+
+-- Create users table
+CREATE TABLE IF NOT EXISTS users (
+    id            BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name          VARCHAR(255) NOT NULL,
+    email         VARCHAR(255) NOT NULL UNIQUE,
+    password_hash VARCHAR(500) NOT NULL,
+    mobile_number VARCHAR(20) UNIQUE,
+    role_id       BIGINT NOT NULL,
+    company_id    BIGINT NULL,
+    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    created_by    VARCHAR(20) NOT NULL,
+    updated_at    TIMESTAMP DEFAULT NULL,
+    updated_by    VARCHAR(20) DEFAULT NULL,
+    CONSTRAINT fk_users_role FOREIGN KEY (role_id) REFERENCES roles(id),
+    CONSTRAINT fk_users_company FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE SET NULL
+    );
