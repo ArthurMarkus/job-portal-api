@@ -37,7 +37,7 @@ public class JobPortalUsernamePwdAuthenticationProvider implements Authenticatio
                 new SimpleGrantedAuthority(jobPortalUser.getRole().getName()));
 
         if (passwordEncoder.matches(pwd, jobPortalUser.getPasswordHash())){
-            return new UsernamePasswordAuthenticationToken(jobPortalUser, null, authorities)
+            return new UsernamePasswordAuthenticationToken(jobPortalUser, null, authorities);
         } else {
             throw new BadCredentialsException("Invalid password");
         }

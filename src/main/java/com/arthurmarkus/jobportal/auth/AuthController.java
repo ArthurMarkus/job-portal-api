@@ -52,6 +52,10 @@ public class AuthController {
             String jwtToken = jwtUtil.generateJwtToken(resultAuthentication);
 
             UserDTO userDTO = new UserDTO();
+            JobPortalUser loggedInUser = (JobPortalUser) resultAuthentication.getPrincipal();
+            BeanUtils.copyProperties(loggedInUser, userDTO);
+            userDTO.setRole(loggedInUser.getRole().getName());
+            userDTO.setUserId(loggedInUser.getId());
 
             return ResponseEntity.status(HttpStatus.OK).body( new LoginResponseDto( HttpStatus.OK.getReasonPhrase(), userDTO, jwtToken) );
 
